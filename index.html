@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+<script>
+    pr1 = 6000000; wpr1 = 5000000;
+    pr2 = 3000000; wpr2 = 2500000;
+    pr3 = 2000000; wpr3 = 1150000;
+    function foreignprice(){
+        document.getElementById("span1").innerHTML = "Price: $"+pr1;
+        document.getElementById("span2").innerHTML = "Price: $"+pr2;
+        document.getElementById("span3").innerHTML = "Price: $"+pr3;
+        }
+    function fCalc(){
+        var q1 = parseInt(document.getElementById("q1").value);
+        var q2 = parseInt(document.getElementById("q2").value);
+        var q3 = parseInt(document.getElementById("q3").value);
+        var subtotal = (pr1 * q1) + (pr2 * q2) + (pr3 * q3);
+        var subcomp = (wpr1 * q1) + (wpr2 * q2) + (wpr3 * q3);
+        var itemsold = q1 + q2 + q3;
+        var profit = subtotal - subcomp;
+        var shipping = 0;
+        if(subtotal<100){
+            shipping = 25;
+        }else if(subtotal>=100 && subtotal<200){
+            shipping = 10;
+        }else{
+            shipping = 0;
+        }
+        
+        var op = document.getElementById("output");
+        var total = (subtotal + shipping) * 1.0875;
+        total = total.toFixed(2);
+        var build = " ";
+        build += "CUSTOMER ORDER DETAILS" + "<br>";
+        build += "subtotal: " + subtotal + "<br>";
+        build += "Tax: 8.75%"+"<br>";
+        build += "Shipping and Handling: " + shipping + "<br>";
+        build += "________________________<br>";
+        build += "Customer Total: " + total;
+        build += "<br>";
+        build += "<br>";
+        build += "ORDER DETAILS FOR THE COMPANY"+"<br>";
+        build += "Total Items Sold: " + itemsold + "<br>";
+        build += "Customer Subtotal: " + subtotal + "<br>";
+        build += "Company Subtotal: " + subcomp + "<br>";
+        build += "________________________<br>";
+        build += "Company Profit: +" + profit + "<br>";    
+        op.innerHTML = build;
+    }
+</script>
+<body>              
+<h1>Nilto</h1>
+<div3>
+<button id="btn" onclick="fCalc()">Add To Cart</button>
+</div3>
+<h2>Cart:</h2>
+<style>
+    body {
+        background-color: rgb(46, 46, 46);
+    }
+    h1{
+        font-size: 45px;
+        color:rgb(51, 151, 238);
+    }
+    h2{
+        font-size: 25px;
+        position:fixed;
+        right: 650px;
+        top:10px;
+        color:rgb(255, 255, 255)
+    }
+    p1{
+        font-size: 25px;
+        color: rgb(51, 151, 238);
+    }
+    h3{
+            color:rgb(255, 0, 0);
+        }
+    p2{
+        color:rgb(255, 255, 255);        
+    }
+    p{
+        color:rgb(255, 102, 0);        
+    }
+    h5{
+        color:rgb(255, 217, 0);
+        font-size: 20px;
+    }
+    h4{
+        color:rgb(60, 149, 223);
+        font-size: 20px;
+    }
+    div1{
+        color:rgb(255, 255, 255);
+        position:fixed;
+        top:25px;
+        right:300px;
+        font-size: 20px;
+    }
+    div3{
+        color:rgb(46, 46, 46);
+        position:fixed;
+        right: 720px;
+        top: 35px;
+    }
+    span{
+        color:rgb(255, 255, 255);
+    }
+    lambo2{
+        height:168px; 
+        width:330px;
+    }
+</style>
+<p1>"If it ain't foreign, ITS BORIN".</p1>
+<div1 id="output"></div1> 
+</head> 
+
+<body onload="foreignprice()">   
+    <div>
+    <br>
+    <h3>LaFerrari<h3>
+    <img src="rari.jpg">
+    <img src="rari2.jpg"><br>
+    <span id="span1"></span>
+    <p2>
+    <br>
+    <br>
+    The name simply means, "The Ferrari" in Italian. This "simple" car is for  <br>
+    you people out there who get judged for being a simpleton on the regular.  <br>
+    For you simple minded people, this is the best car for you to have to flex on those rats. <br>
+    Don't tell them to stop judging you, tell them "Yea I agree with you, look at <br>
+    my simple car." Girls will love you, bozos will envy you. <br>
+    </p2>
+    <input id= "q1" type="text" placeholder = "Quantity" value="0">                  
+
+    <select>
+    <option value="Color">Color</option>
+    <option value="Red">Red</option>
+    <option value="Black">Black</option>
+    </select>
+    </div>
+
+    <div>
+    <p>
+    ______________________________________________________________________________________________________<br>
+    </p>
+    <h5>Lamborghini Sesto Elemento<h5>
+    <img src="lambo.jpg">
+    <img id="lambo2" src="lambo2.jpg"><br>
+    <span id="span2"></span>
+    <p2>
+    <br>
+    <br>
+    "Im in ma Lambo" <br>
+    "Sesto Elemento?"  <br>
+    "Nah man. My Pegassi Zentorno"<br>
+    </p2>
+    <input type="text" id="q2" placeholder="Quantity" value="0">                 
+    <select>
+    <option text="Color">Color</option>
+    <option value="Steel">Steel</option>
+    <option value="MidnightBlue">Midnight Blue</option>
+    <option value="Red">Red</option>
+    </select>
+    </div>
+
+    <div>
+    <p>
+    ______________________________________________________________________________________________________<br>
+    </p>
+    <h4>McLaren P1<h4>
+    <img src="mc1.jpg">
+    <img src="mc2.jpg"><br>
+    <span id="span3"></span>
+    <p2>
+    <br>
+    <br>
+    Progen T20 <br>
+    </p2>                 
+    <input type="text" id="q3" placeholder="Quantity" value="0">
+    <select>
+    <option text="Color">Color</option>
+    <option value="Steel">Orange</option>
+    <option value="MidnightBlue">Purple</option>
+    <option value="Red">Black</option>
+    </select>
+    </div>
+</body>              
+</html>
